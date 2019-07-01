@@ -1,25 +1,25 @@
 #include<stdio.h>
 void main()
 {
-	int n,an,r,rev=0,ver=0,product;
+		int r,original,num,org,powered,sum=0,count=0;
 	printf("Enter a number to be checked:\n");
-	scanf("%d",&n);
-	an=n;
-	while(n!=0)
+	scanf("%d",&original);
+	num=original;
+	while(num!=0)
 	{
-		r=n%10;
-		ver+=r;
-		n/=10;
+		++count;
+		num/=10;
 	}
-	n=ver;
-	while(ver!=0)
+	num=original;
+	while(num!=0)
 	{
-		r=ver%10;
-		rev=rev*10+r;
-		ver/=10;
+		r=num%10;
+		powered=pow(r,count--);
+		sum=sum+powered;
+		num/=10;
 	}
-	product=n*rev;
-	if(product==an)
+	
+	if(sum==original)
 	printf("Dizarium");
 	else
 	printf("Not Dizarium");
